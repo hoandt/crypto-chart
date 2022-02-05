@@ -1,29 +1,23 @@
 import { useEffect, useState } from "react";
+import api from "./axios/api";
 
-export const isBrowser = typeof window !== "undefined";
-
-function FetchWS() {
-  const [stream, setStream] = useState({ k: { c: "..." } });
-  const {
-    k: { c: close_price },
-  } = stream;
-  const [wsInstance] = useState(() =>
-    isBrowser
-      ? new WebSocket("wss://stream.binance.com:9443/ws/egldusdt@kline_1m")
-      : null
-  );
-
+function WSPage() {
+  const [postStatus, setPostStatus] = useState({ success: false });
   useEffect(() => {
-    wsInstance.onmessage = function (evt) {
-      setStream(JSON.parse(evt.data));
+    const kline = { id: 1, amt: 2000 };
+    const getData = async () => {
+      try {
+        const response = await api.post("/post.php", kline);
+        setPostStatus(response.data);
+      } catch (error) {
+        console.log("[pages/ws.js]: ", error);
+      }
     };
+
+    getData();
   }, []);
-  console.log("[pages/ws.js]: ", stream.k);
-  return (
-    <div>
-      <h1>{close_price}</h1>
-    </div>
-  );
+
+  return <div>{postStatus.success ? "ok" : "..."}</div>;
 }
 
-export default FetchWS;
+export default WSPage;
