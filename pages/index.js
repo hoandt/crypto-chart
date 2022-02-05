@@ -23,7 +23,7 @@ function FetchWS() {
     if (kline_closed) {
       const getData = async () => {
         try {
-          const response = await api.post(
+          const response = await axios.post(
             "https://vnconsumer.com/hoan/crypto/api/post.php",
             stream.k
           );
