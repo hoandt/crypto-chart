@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import api from "./axios/api";
-
 export const isBrowser = typeof window !== "undefined";
 
 function FetchWS() {
