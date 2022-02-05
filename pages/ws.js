@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 function WSPage() {
   const [postStatus, setPostStatus] = useState({ success: false });
