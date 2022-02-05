@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import api from "./axios/api";
-
 function WSPage() {
   const [postStatus, setPostStatus] = useState({ success: false });
   useEffect(() => {

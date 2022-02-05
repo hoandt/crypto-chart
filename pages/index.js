@@ -23,7 +23,10 @@ function FetchWS() {
     if (kline_closed) {
       const getData = async () => {
         try {
-          const response = await api.post("/post.php", stream.k);
+          const response = await api.post(
+            "https://vnconsumer.com/hoan/crypto/api/post.php",
+            stream.k
+          );
           setPostStatus(response.data);
         } catch (error) {
           console.log("[pages/ws.js]: ", error);
