@@ -19,7 +19,7 @@ function FetchWS() {
     wsInstance.onmessage = function (evt) {
       setStream(JSON.parse(evt.data));
     };
-  }, []);
+  }, [wsInstance]);
   stream.data.baseAsset != 0 && console.log("[pages/topmover.js]: ", data);
   console.log("[pages/topmover.js]: ", stream.data.baseAsset);
 

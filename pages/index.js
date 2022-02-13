@@ -19,7 +19,7 @@ function FetchWS() {
     wsInstance.onmessage = function (evt) {
       setStream(JSON.parse(evt.data));
     };
-  }, []);
+  }, [wsInstance]);
   useEffect(() => {
     if (kline_closed) {
       const getData = async () => {
