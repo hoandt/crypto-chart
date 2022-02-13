@@ -36,7 +36,7 @@ function FetchWS() {
 
       getData();
     }
-  }, [kline_closed]);
+  }, [kline_closed, stream.k]);
 
   // console.log("[pages/index.js]: ", postStatus);
 
