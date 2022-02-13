@@ -38,7 +38,7 @@ function FetchWS() {
     }
   }, [kline_closed]);
 
-  console.log("[pages/index.js]: ", postStatus);
+  // console.log("[pages/index.js]: ", postStatus);
 
   return (
     <div>
